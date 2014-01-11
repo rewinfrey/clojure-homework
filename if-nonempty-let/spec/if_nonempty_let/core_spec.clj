@@ -18,6 +18,11 @@
       (should= :else
                (if-nonempty-let [x {}] x :else)))
 
+    (it "handles non-literal empties"
+      (let [xs []]
+        (should= :else
+                 (if-nonempty-let [x xs] x :else))))
+
     (it "returns else expression for empty list binding"
       (should= :else
                (if-nonempty-let [x ()] x :else))))
